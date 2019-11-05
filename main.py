@@ -89,9 +89,7 @@ class Chat:
         self.entry.config(state="disabled")
         self.usr.sendMessage(self.users, msg)
         self.entry.config(state="normal")
-        self.app.stop_spam.config(state="disabled")
         self.app.back.config(state="normal")
-        self.app.inf_spam.config(state="normal")
         #Reset thread
         self.send_msg_thread = threading.Thread(target=self.send_msg)
         self.send_msg_thread.daemon = True
@@ -447,7 +445,7 @@ class App:
             start_convo.config(state="disabled")
 
             if not isinstance(self.target, list):  #Make sure in proper format
-                self.target = self.target.split(',')
+                self.target = self.target.lit(',')
 
             self.targets = []
             for target in self.target:
